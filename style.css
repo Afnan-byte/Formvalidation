@@ -1,0 +1,68 @@
+.box {
+    height: 557px;
+    width: 500px;
+    margin-top: 60px;
+    background-color: rgb(212, 215, 218);
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+.head{
+    margin-left: auto;
+    margin-right: auto;
+    height: 90px;
+    width: 150px;
+
+}
+h1,label,button,p{
+    margin-left: 10px;
+    font-family: "Moderustic", sans-serif;
+    font-optical-sizing: auto;
+    
+    font-style: normal;
+    
+}
+p{
+    margin-top: -3px;
+}
+
+
+input{
+    width: 95%;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+   
+    
+}
+
+.smallbox {
+    
+    height: 75px;
+    width: 100%;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+button{
+    height: 40px;
+    width: 95%;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(0, 137, 223);
+    color: white;
+}
+button:hover{
+    background-color: blue;
+}
+
+
+.box2{
+    height: 557px;
+    width: 500px;
+    position: absolute;
+    
+    margin-left: 10px;
+
+}

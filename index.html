@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+    <div class="box">
+        
+        <div class="box2">
+            <form action="home.html">
+                <div class="head">
+                    <h1>Sign Up</h1>
+                </div>
+                <div class="smallbox">
+                   
+                    <input type="text" id="username" placeholder="Username" onchange="check()" required>
+                    <p id="alertname"></p>
+                </div>
+                <div class="smallbox" >
+                    
+                    <input type="email" id="email" placeholder="email" onchange="emailCheck()" required>
+                    <p id="alert2"></p>
+                </div>
+                <div class="smallbox" >
+                  
+                    <input type="password" id="password1" placeholder="Enter Password" required  onchange="caseCheck()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*['@', '$', '. ', '#', '! ', '%', '*', '? ', '&', '^']).{8,}">
+                    <p id="capital" style="font-size: 10px; margin-top: 2px;">Password includes Uppercase,Number,Special characters(atleast 8 character)</p>
+                    
+                </div>
+                <div class="smallbox">
+                    
+                    <input type="password" id="password2" placeholder="Confirm Password" required onchange="confirmPsw()">
+                    <p id="demo"></p>
+                </div>
+                <div class="smallbox">
+                    
+                    <input type="number" id="num" placeholder="Phone Number" onchange="phone()">
+                    <p id="phone"></p>
+                </div>
+                <div class="smallbox">
+                   
+                    <button type="submit"  value="submit">Sign Up</button>
+                </div>
+    
+
+            </form>
+            
+        </div>
+       
+
+
+    </div>
+    
+</body>
+<script>
+   
+    function check(){
+        var username = document.getElementById('username');
+        if(username.value.length < 5){
+            document.getElementById('alertname').innerText = "Atlest five character";
+            document.getElementById('alertname').style.color = "red"
+            username.value = "";
+            
+            
+           
+            
+           
+
+        }else{
+            document.getElementById('alertname').innerText = "Username allowed";
+            document.getElementById('alertname').style.color ="green"
+
+ 
+        }
+    }
+    function phone(){
+        let phoneNum = document.getElementById('num');
+        if(phoneNum.value.length === 10){
+            document.getElementById('phone').innerHTML = "valid phone"
+             document.getElementById('phone').style.color ="green"
+        }else{
+             document.getElementById('phone').innerHTML = "not valid phone"
+              document.getElementById('phone').style.color ="red"
+              phoneNum.value = ""
+
+        }
+    }
+
+
+    var psw1 = document.getElementById('password1')
+    var psw2 = document.getElementById('password2')
+    
+    function confirmPsw(){
+        if(psw1.value == psw2.value){
+            document.getElementById('demo').innerHTML = "Password match"
+            document.getElementById('demo').style.color = 'green'
+        }else{
+             document.getElementById('demo').innerHTML = "Password dont match"
+            document.getElementById('demo').style.color = 'red'
+            
+            psw2.value = ""
+
+        }
+    }
+    function caseCheck(){
+        var psw = document.getElementById('password1')
+        var capital = document.getElementById('capital')
+        var upper = /[A-Z]/g;
+        var num1 = /[0-9]/g;
+        var sp =  /['@', '$', '. ', '#', '! ', '%', '*', '? ', '&', '^']/g;
+        if(psw.value.match(upper) && psw.value.match(num1) && psw.value.match(sp)&& psw.value.length >= 8) {  
+            capital.style.color = 'green'
+            capital.textContent = "Valid"
+            capital.style.fontSize ="16px"
+             capital.style.marginTop = "-2px"
+           
+        } else {
+            capital.style.color = 'red'
+            capital.style.fontSize ="16px"
+            capital.style.marginTop = "-2px"
+            capital.textContent = "not Valid"
+            psw.value = "";
+        }
+            
+  }
+  function emailCheck(){
+    var emailInput = document.getElementById('email');
+    var emailValue = emailInput.value;
+    var alert2 = document.getElementById('alert2')
+
+  
+  var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  if (!emailPattern.test(emailValue)) {
+    alert2.innerHTML ="Please enter a valid email address."
+    alert2.style.color = "red"
+    emailInput.value = ""
+    
+  }else{
+    alert2.innerHTML ="Valid email address."
+    alert2.style.color = "green"
+    
+
+  }
+ 
+
+        
+
+    }
+
+    
+
+    
+       
+
+    
+    
+    
+    
+</script>
+</html>
